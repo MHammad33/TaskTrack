@@ -1,5 +1,5 @@
-import { logDOM } from "@testing-library/react";
 import { useState } from "react";
+import "./taskForm.css";
 
 const TaskForm = () => {
 	const [taskName, setTaskName] = useState("");
@@ -11,10 +11,13 @@ const TaskForm = () => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<button type="submit">+</button>
+		<form className="form-container" onSubmit={handleSubmit}>
+			<button className="form-button" type="submit">
+				+
+			</button>
 			<input
 				type="text"
+				className="form-input"
 				value={taskName}
 				onChange={handleChange}
 				placeholder="Your next task..."
