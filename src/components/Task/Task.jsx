@@ -1,9 +1,11 @@
+import Checkbox from "./Checkbox/Checkbox";
 import "./task.css";
 
 const Task = ({ n }) => {
 	return (
 		<div className="task">
-			<input type="checkbox" />
+			{/* Checkbox */}
+			<Checkbox isChecked={false} />
 			testTask {n}
 		</div>
 	);
