@@ -1,6 +1,8 @@
+import "./task.css";
+
 const Task = ({ n }) => {
 	return (
-		<div>
+		<div className="task">
 			<input type="checkbox" />
 			testTask {n}
 		</div>
