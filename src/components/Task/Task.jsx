@@ -1,12 +1,12 @@
 import Checkbox from "./Checkbox/Checkbox";
 import "./task.css";
 
-const Task = ({ n }) => {
+const Task = ({ taskName, isDone }) => {
 	return (
 		<div className="task">
 			{/* Checkbox */}
-			<Checkbox isChecked={false} />
-			testTask {n}
+			<Checkbox isChecked={isDone} />
+			{taskName}
 		</div>
 	);
 };

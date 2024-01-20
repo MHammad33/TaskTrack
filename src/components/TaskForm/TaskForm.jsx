@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "./taskForm.css";
 
-const TaskForm = () => {
+const TaskForm = ({ addTask }) => {
 	const [taskName, setTaskName] = useState("");
-	console.log("taskName", taskName);
+
 	const handleChange = (e) => setTaskName(e.target.value);
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		addTask(taskName);
 		setTaskName("");
 	};
 
