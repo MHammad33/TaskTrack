@@ -13,6 +13,7 @@ function App() {
 
 	useEffect(() => {
 		const lsTasks = JSON.parse(localStorage.getItem("tasks"));
+		if (lsTasks === null) return;
 		setTasks(lsTasks);
 	}, []);
 
@@ -22,13 +23,20 @@ function App() {
 		});
 	};
 
+	const updateDone = (task, index) => {
+		const newTasks = [...tasks];
+		newTasks[index].isDone = !task.isDone;
+		setTasks(newTasks);
+	};
+
 	return (
 		<main>
 			<h1>Task Tracker</h1>
 			<TaskForm addTask={addTask} />
-			{tasks.map((task, i) => (
-				<Task key={i} {...task} />
-			))}
+			{tasks &&
+				tasks.map((task, i) => (
+					<Task key={i} {...task} handleDone={() => updateDone(task, i)} />
+				))}
 		</main>
 	);
 }

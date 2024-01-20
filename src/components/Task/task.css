@@ -4,4 +4,28 @@
 	padding: 5px 8px;
 	margin-top: 5px;
 	display: flex;
+	transition: opacity 0.3s linear;
+}
+.task span {
+	position: relative;
+}
+
+.task span:before {
+	content: "";
+	display: block;
+	width: 0;
+	height: 1px;
+	background-color: #ddd;
+	position: absolute;
+	top: 10px;
+	transition: width 0.1s linear;
+}
+
+.task.done span:before {
+	width: 100%;
+}
+
+.done {
+	opacity: 0.4;
+	/* text-decoration: line-through; */
 }
