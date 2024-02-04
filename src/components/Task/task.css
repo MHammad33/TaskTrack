@@ -1,11 +1,16 @@
-.task {
+div.task {
 	background-color: #26252e;
 	border-radius: 10px;
 	padding: 5px 8px;
 	margin-top: 5px;
 	display: flex;
+	align-items: center;
 	transition: opacity 0.3s linear;
 }
+div.taskName {
+	flex-grow: 1;
+}
+
 .task span {
 	position: relative;
 }
@@ -28,4 +33,16 @@
 .done {
 	opacity: 0.4;
 	/* text-decoration: line-through; */
+}
+
+button.trash {
+	background: none;
+	border: none;
+	display: flex;
+	cursor: pointer;
+}
+
+button.trash svg {
+	fill: #aaa;
+	height: 16px;
 }

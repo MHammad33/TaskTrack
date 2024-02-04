@@ -29,6 +29,12 @@ function App() {
 		setTasks(newTasks);
 	};
 
+	const removeTask = (indexToRemove) => {
+		setTasks((prev) => {
+			return prev.filter((taskObj, index) => index !== indexToRemove);
+		});
+	};
+
 	const completedTasks = tasks.filter((task) => task.isDone).length;
 	const totalTasks = tasks.length;
 	const getMessage = () => {
@@ -53,7 +59,12 @@ function App() {
 			<TaskForm addTask={addTask} />
 			{tasks &&
 				tasks.map((task, i) => (
-					<Task key={i} {...task} handleDone={() => updateDone(task, i)} />
+					<Task
+						key={i}
+						{...task}
+						handleTrash={() => removeTask(i)}
+						handleDone={() => updateDone(task, i)}
+					/>
 				))}
 		</main>
 	);
