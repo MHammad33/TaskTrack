@@ -29,9 +29,27 @@ function App() {
 		setTasks(newTasks);
 	};
 
+	const completedTasks = tasks.filter((task) => task.isDone).length;
+	const totalTasks = tasks.length;
+	const getMessage = () => {
+		const percentage = (completedTasks / totalTasks) * 100;
+		if (percentage === 0) {
+			return "Try to complete at least one task!";
+		} else if (percentage === 100) {
+			return "Nice job for today!";
+		} else if (percentage < 50) {
+			return "Try to complete some tasks. You can do it!";
+		}
+		return "You are doing great. Keep it going!";
+	};
+
 	return (
 		<main>
 			<h1>Task Tracker</h1>
+			<h2>
+				{completedTasks}/{totalTasks} Completed
+			</h2>
+			<h2>{getMessage()}</h2>
 			<TaskForm addTask={addTask} />
 			{tasks &&
 				tasks.map((task, i) => (
